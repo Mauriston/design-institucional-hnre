@@ -1,0 +1,113 @@
+/*
+  HNRe — Design Tokens · MIV MB (dez/2025)
+  Fonte-verdade de cores, tipografia, espaço, forma e movimento para web, PWA e mobile.
+  NÃO redistribuir arquivos de fonte sem licença. Hospedar só fontes licenciadas para o projeto.
+  NÃO recalcular o HEX do Verde Brasil (usar #079551).
+*/
+
+:root {
+  /* ---- Cores institucionais (MIV) ---- */
+  --mb-azul-marinha: #050f41;
+  --mb-amarelo-ouro: #fab932;
+  --mb-verde-brasil: #079551;
+  --mb-branco: #ffffff;
+  --mb-preto: #000000;
+
+  /* Aliases curtos (mesmos valores) */
+  --mb-blue: var(--mb-azul-marinha);
+  --mb-gold: var(--mb-amarelo-ouro);
+  --mb-green: var(--mb-verde-brasil);
+
+  /* ---- Superfícies e neutros (derivações por transparência do Azul) ---- */
+  --ui-bg: #ffffff;
+  --ui-surface: #ffffff;
+  --ui-surface-subtle: rgba(5, 15, 65, 0.04);
+  --ui-surface-muted: rgba(5, 15, 65, 0.08);
+  --ui-overlay: rgba(5, 15, 65, 0.72);
+
+  --mb-azul-04: rgba(5, 15, 65, 0.04);
+  --mb-azul-08: rgba(5, 15, 65, 0.08);
+  --mb-azul-16: rgba(5, 15, 65, 0.16);
+  --mb-azul-32: rgba(5, 15, 65, 0.32);
+
+  /* ---- Texto ---- */
+  --ui-text: #050f41;
+  --ui-text-muted: rgba(5, 15, 65, 0.72);
+  --ui-text-disabled: rgba(5, 15, 65, 0.46);
+  --ui-text-on-brand: #ffffff;
+
+  /* ---- Bordas ---- */
+  --ui-border: rgba(5, 15, 65, 0.16);
+  --ui-border-strong: rgba(5, 15, 65, 0.32);
+
+  /* ---- Estados funcionais (UI, NÃO institucionais; nunca na marca) ---- */
+  --ui-success: #079551;
+  --ui-warning: #9a6700;
+  --ui-danger:  #b42318;
+  --ui-info:    #175cd3;
+
+  /* ---- Aplicação semântica ---- */
+  --color-brand: var(--mb-azul-marinha);
+  --color-accent: var(--mb-amarelo-ouro);
+  --color-positive: var(--mb-verde-brasil);
+  --color-background: var(--mb-branco);
+  --color-surface: var(--mb-branco);
+  --color-text: var(--mb-azul-marinha);
+  --color-border: var(--mb-azul-16);
+  --color-focus: var(--mb-amarelo-ouro);
+
+  --action-primary-bg: var(--mb-azul-marinha);
+  --action-primary-text: var(--mb-branco);
+  --action-focus: var(--mb-amarelo-ouro);
+
+  /* ---- Tipografia ---- */
+  --font-display: "Octin College", "Bebas Neue Pro", sans-serif;
+  --font-body: "Montserrat", Arial, sans-serif;
+
+  --font-size-caption: 0.75rem;   /* 12 */
+  --font-size-small: 0.875rem;    /* 14 */
+  --font-size-body: 1rem;         /* 16 */
+  --font-size-body-lg: 1.125rem;  /* 18 */
+  --font-size-title: 1.125rem;    /* 18 */
+  --font-size-h3: 1.25rem;        /* 20 */
+  --font-size-h2: 1.5rem;         /* 24 */
+  --font-size-h1: 1.75rem;        /* 28 */
+  --font-size-display: 2rem;      /* 32 */
+
+  /* ---- Espaçamento (base 4 · múltiplos de 8) ---- */
+  --space-1: 0.25rem; /* 4  */
+  --space-2: 0.5rem;  /* 8  */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem;    /* 16 */
+  --space-6: 1.5rem;  /* 24 */
+  --space-8: 2rem;    /* 32 */
+  --space-12: 3rem;   /* 48 */
+  --space-16: 4rem;   /* 64 */
+
+  /* ---- Forma ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-pill: 999rem;
+
+  /* ---- Controles / toque ---- */
+  --control-min-height: 3rem; /* 48 */
+  --touch-target: 3rem;       /* 48 */
+
+  /* ---- Movimento ---- */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ---- Layout ---- */
+  --container: 75rem;
+
+  /* ---- Marca ---- */
+  /* Calibrar a partir da altura da letra "M" do arquivo oficial. Não reduzir para caber. */
+  --brand-clearspace: 1rem;
+
+  /* ---- Safe areas (PWA) ---- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
