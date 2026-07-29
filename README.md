@@ -36,7 +36,7 @@ exigem validação institucional.
 
 ## Núcleo inegociável (aplica-se a TODA entrega)
 
-Estas regras valem em web, slide, mobile, PDF e impresso. Detalhe e exceções nos `references/`.
+Estas regras valem em web, slide, mobile, PDF e impresso. Detalhe e exceções nos `references`.
 
 ### Cores institucionais — exatamente estes valores
 
