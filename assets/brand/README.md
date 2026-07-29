@@ -66,13 +66,6 @@ LETT=só lettering · ULTRAWIDE=horizontal alternativa · DISCLAIMER=com slogan.
 Logotipo vertical 70 px · horizontal 40 px. Distintivo vertical 80 px · horizontal 50 px.
 Área de segurança = altura da letra "M" do lettering, aplicada no contêiner (token `--brand-clearspace`).
 
-## Como popular (10 s)
-
-1. **Manual:** baixar da pasta RGB/PNG os arquivos da tabela e salvar aqui com o nome canônico.
-2. **Via MCP (Claude Code no seu Mac):** os arquivos já vêm para
-   `~/.workspace-mcp/attachments/` ao usar o download do `workspace-mcp`; renomeie para o nome
-   canônico e mova para `assets/brand/`.
-
 ## Escolha rápida: qual marca
 
 - Público externo / paciente / civil / web pública → **logotipo (colorido)**.
