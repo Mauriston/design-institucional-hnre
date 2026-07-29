@@ -1,0 +1,112 @@
+<!--
+  HNRe — Esqueleto PWA mobile-first (MIV MB dez/2025).
+  Safe areas, app bar, bottom-nav. Substituir a marca por arquivo OFICIAL.
+  Em projeto real, importar assets/tokens.css e registrar fontes licenciadas via @font-face.
+-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050F41" />
+  <title>Hospital Naval de Recife</title>
+  <style>
+    :root {
+      --mb-blue:#050f41; --mb-gold:#fab932; --mb-green:#079551; --white:#fff;
+      --border:rgba(5,15,65,.16); --surface-subtle:rgba(5,15,65,.04); --text-muted:rgba(5,15,65,.72);
+      --font-body:"Montserrat", Arial, sans-serif;
+      --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { font-family:var(--font-body); color:var(--mb-blue); background:var(--white); }
+    body { margin:0; min-width:20rem; font-size:1rem; line-height:1.5; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--mb-gold); outline-offset:3px; }
+    .skip-link { position:fixed; z-index:1000; top:calc(var(--safe-top) + .5rem); left:1rem;
+      padding:.75rem 1rem; color:var(--mb-blue); background:var(--mb-gold); font-weight:700; transform:translateY(-200%); }
+    .skip-link:focus { transform:translateY(0); }
+    .app-shell { min-height:100dvh; padding-top:var(--safe-top); padding-bottom:calc(4rem + var(--safe-bottom)); }
+    .app-bar { position:sticky; top:0; z-index:20; min-height:4rem; display:grid;
+      grid-template-columns:3rem 1fr 3rem; align-items:center; padding-inline:.5rem; color:var(--white); background:var(--mb-blue); }
+    .app-bar__title { min-width:0; text-align:center; }
+    .app-bar__title h1, .app-bar__context { display:block; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .app-bar__title h1 { font-size:1rem; line-height:1.25; font-weight:600; }
+    .app-bar__context { font-size:.75rem; color:rgba(255,255,255,.76); }
+    .icon-button { width:3rem; height:3rem; border:0; border-radius:.5rem; color:inherit; background:transparent; }
+    .screen-content { width:min(100% - 2rem, 45rem); margin-inline:auto; padding-block:1rem 2rem; }
+    .brand-panel { padding:1.5rem; border:1px solid var(--border); border-radius:.75rem; background:var(--surface-subtle); }
+    .brand-safe-area { display:inline-block; padding:1rem; background:var(--white); }
+    .brand-logo--horizontal { display:block; width:auto; max-width:100%; min-height:40px; max-height:56px; object-fit:contain; }
+    .eyebrow, .card__eyebrow { margin:1rem 0 .25rem; font-size:.75rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--mb-green); }
+    h2 { margin:0; font-size:1.5rem; line-height:1.25; }
+    h3 { margin:0; font-size:1.125rem; line-height:1.35; }
+    .section-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-block:2rem 1rem; }
+    .card { display:grid; gap:1rem; padding:1rem; border:1px solid var(--border); border-radius:.75rem; background:var(--white); }
+    .card__eyebrow { margin-top:0; }
+    .card__meta { margin:.25rem 0 0; color:var(--text-muted); font-size:.875rem; }
+    .button { min-height:3rem; display:inline-flex; align-items:center; justify-content:center;
+      padding:.75rem 1rem; border:1px solid transparent; border-radius:.5rem; text-decoration:none; font-weight:600; }
+    .button--primary { color:var(--white); background:var(--mb-blue); }
+    .text-button { min-height:2.75rem; border:0; color:var(--mb-blue); background:transparent; font-weight:600; }
+    .bottom-nav { position:fixed; z-index:30; inset:auto 0 0; min-height:calc(4rem + var(--safe-bottom));
+      display:grid; grid-template-columns:repeat(3,1fr); padding-bottom:var(--safe-bottom);
+      border-top:1px solid var(--border); background:var(--white); }
+    .bottom-nav__item { min-width:0; min-height:4rem; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:.125rem; color:var(--text-muted); text-decoration:none; font-size:.75rem; font-weight:600; }
+    .bottom-nav__item.is-current { color:var(--mb-blue); box-shadow:inset 0 3px 0 var(--mb-gold); }
+    @media (min-width:48rem) { .screen-content { padding-inline:1rem; } .card { grid-template-columns:1fr auto; align-items:center; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:1ms !important; transition-duration:1ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <div class="app-shell">
+    <header class="app-bar">
+      <button class="icon-button" type="button" aria-label="Voltar"><span aria-hidden="true">←</span></button>
+      <div class="app-bar__title">
+        <span class="app-bar__context">HNRe</span>
+        <h1>Inspeções de Saúde</h1>
+      </div>
+      <button class="icon-button" type="button" aria-label="Mais opções"><span aria-hidden="true">⋮</span></button>
+    </header>
+
+    <main id="conteudo" class="screen-content">
+      <section class="brand-panel" aria-labelledby="boas-vindas">
+        <div class="brand-safe-area">
+          <!-- Só arquivo oficial; respeitar redução mínima (40px horizontal). -->
+          <img class="brand-logo brand-logo--horizontal"
+               src="/assets/marca/logotipo-marinha-horizontal-colorido.png" alt="Marinha do Brasil" />
+        </div>
+        <p class="eyebrow">Hospital Naval de Recife</p>
+        <h2 id="boas-vindas">Painel operacional</h2>
+        <p>Consulte pendências e acesse as tarefas autorizadas para o seu perfil.</p>
+      </section>
+
+      <section aria-labelledby="tarefas">
+        <div class="section-heading">
+          <h2 id="tarefas">Tarefas</h2>
+          <button class="text-button" type="button">Ver todas</button>
+        </div>
+        <article class="card">
+          <div>
+            <p class="card__eyebrow">Pendente de revisão</p>
+            <h3>Inspeção de Saúde</h3>
+            <p class="card__meta">Atualizada hoje, 09:40</p>
+          </div>
+          <a class="button button--primary" href="/inspecoes/123">Revisar</a>
+        </article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a class="bottom-nav__item is-current" href="/inicio" aria-current="page">
+        <span aria-hidden="true">⌂</span><span>Início</span>
+      </a>
+      <a class="bottom-nav__item" href="/tarefas"><span aria-hidden="true">✓</span><span>Tarefas</span></a>
+      <a class="bottom-nav__item" href="/perfil"><span aria-hidden="true">●</span><span>Perfil</span></a>
+    </nav>
+  </div>
+</body>
+</html>
