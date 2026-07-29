@@ -1,0 +1,129 @@
+<!--
+  HNRe — Esqueleto web base (MIV MB dez/2025).
+  Substituir o src da marca por arquivo OFICIAL (ver assets/brand/README.md).
+  CSS inline abaixo já traz os tokens; em projeto real, importar assets/tokens.css.
+-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050F41" />
+  <title>Hospital Naval de Recife</title>
+  <style>
+    :root {
+      --mb-azul-marinha: #050f41; --mb-amarelo-ouro: #fab932; --mb-verde-brasil: #079551;
+      --mb-branco: #ffffff; --mb-azul-16: rgba(5,15,65,.16);
+      --font-display: "Octin College", "Bebas Neue Pro", sans-serif;
+      --font-body: "Montserrat", Arial, sans-serif;
+      --space-3:.75rem; --space-4:1rem; --space-6:1.5rem; --space-8:2rem; --space-12:3rem; --space-16:4rem;
+      --radius-sm:.25rem; --radius-md:.5rem; --container:75rem; --brand-clearspace:1rem;
+    }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { color-scheme:light; font-family:var(--font-body); background:var(--mb-branco); color:var(--mb-azul-marinha); }
+    body { margin:0; min-width:20rem; font-size:1rem; line-height:1.6; }
+    img,svg { display:block; max-width:100%; }
+    :focus-visible { outline:3px solid var(--mb-amarelo-ouro); outline-offset:3px; }
+    .skip-link { position:fixed; inset:var(--space-4) auto auto var(--space-4); z-index:1000;
+      padding:var(--space-3) var(--space-4); background:var(--mb-amarelo-ouro); color:var(--mb-azul-marinha);
+      font-weight:700; transform:translateY(-200%); }
+    .skip-link:focus { transform:translateY(0); }
+    .institutional-header { border-bottom:1px solid var(--mb-azul-16); background:var(--mb-branco); }
+    .institutional-header__inner { width:min(100% - 2rem, var(--container)); margin-inline:auto;
+      display:flex; align-items:center; justify-content:space-between; gap:var(--space-6); min-height:6rem; }
+    .brand-safe-area { flex:0 0 auto; padding:var(--brand-clearspace); }
+    .brand-logo--horizontal { min-height:40px; max-height:64px; width:auto; object-fit:contain; }
+    .institutional-id { min-width:0; text-align:right; }
+    .institutional-id__eyebrow, .hero__kicker { margin:0; font-size:.75rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase; }
+    .institutional-id__name { margin:.25rem 0 0; font-family:var(--font-display);
+      font-size:clamp(1.25rem,2vw,1.75rem); font-weight:700; line-height:1.05; text-transform:uppercase; }
+    .page-shell { width:min(100% - 2rem, var(--container)); margin-inline:auto; }
+    .hero { padding-block:clamp(3rem,8vw,7rem); max-width:55rem; }
+    .hero__kicker { color:var(--mb-verde-brasil); }
+    h1 { max-width:18ch; margin:var(--space-3) 0 var(--space-6); font-family:var(--font-display);
+      font-size:clamp(2.5rem,7vw,4.5rem); font-weight:800; line-height:1.02; text-transform:uppercase; }
+    h2 { color:var(--mb-azul-marinha); font-family:var(--font-body);
+      margin:0; font-size:clamp(1.75rem,4vw,2.5rem); line-height:1.2; }
+    h3 { color:var(--mb-azul-marinha); font-family:var(--font-body); margin:0 0 var(--space-3);
+      font-size:1.25rem; line-height:1.3; }
+    .hero__summary { max-width:65ch; margin:0; font-size:clamp(1.0625rem,2vw,1.25rem); }
+    .hero__actions { display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-8); }
+    .button { display:inline-flex; min-height:2.75rem; align-items:center; justify-content:center;
+      padding:.75rem 1.125rem; border:2px solid transparent; border-radius:var(--radius-sm);
+      font-weight:700; line-height:1.2; text-decoration:none; }
+    .button--primary { background:var(--mb-azul-marinha); color:var(--mb-branco); }
+    .button--secondary { border-color:var(--mb-azul-marinha); background:var(--mb-branco); color:var(--mb-azul-marinha); }
+    .button--accent { background:var(--mb-amarelo-ouro); color:var(--mb-azul-marinha); }
+    .button--positive { background:var(--mb-verde-brasil); color:var(--mb-azul-marinha); }
+    .content-section { padding-block:var(--space-12) var(--space-16); border-top:1px solid var(--mb-azul-16); }
+    .section-heading { display:flex; align-items:stretch; gap:var(--space-4); margin-bottom:var(--space-8); }
+    .section-heading__accent { width:.375rem; flex:0 0 auto; background:var(--mb-amarelo-ouro); }
+    .card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,18rem),1fr)); gap:var(--space-6); }
+    .card { padding:var(--space-6); border:1px solid var(--mb-azul-16); border-radius:var(--radius-md); background:var(--mb-branco); }
+    .card p { margin:0; }
+    .card--positive { border-top:.375rem solid var(--mb-verde-brasil); }
+    .institutional-footer { padding:var(--space-8) max(1rem, calc((100% - var(--container)) / 2));
+      background:var(--mb-azul-marinha); color:var(--mb-branco); }
+    .institutional-footer p { margin:0; font-size:.875rem; font-weight:600; }
+    @media (max-width:45rem) { .institutional-header__inner { align-items:flex-start; flex-direction:column; }
+      .institutional-id { text-align:left; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after {
+      transition-duration:.01ms !important; animation-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="institutional-header">
+    <div class="institutional-header__inner">
+      <!-- Área de segurança = altura do "M". Só arquivo oficial. Mínimo horizontal 40px. -->
+      <div class="brand-safe-area" aria-label="Marinha do Brasil">
+        <img class="brand-logo brand-logo--horizontal"
+             src="/assets/marca/logotipo-marinha-horizontal-colorido.png"
+             alt="Marinha do Brasil" width="240" height="80" />
+      </div>
+      <div class="institutional-id">
+        <p class="institutional-id__eyebrow">Marinha do Brasil</p>
+        <p class="institutional-id__name">Hospital Naval de Recife</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page-shell">
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <p class="hero__kicker">Saúde Naval</p>
+      <h1 id="titulo-pagina">Título institucional curto</h1>
+      <p class="hero__summary">Texto introdutório em Montserrat, objetivo e adequado ao contexto médico-administrativo.</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#secao">Ação principal</a>
+        <a class="button button--secondary" href="#secao">Saiba mais</a>
+      </div>
+    </section>
+
+    <section id="secao" class="content-section" aria-labelledby="titulo-secao">
+      <header class="section-heading">
+        <span class="section-heading__accent" aria-hidden="true"></span>
+        <div>
+          <p class="institutional-id__eyebrow">Seção</p>
+          <h2 id="titulo-secao">Informação clara e hierarquizada</h2>
+        </div>
+      </header>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Card institucional</h3>
+          <p>Superfícies brancas, bordas derivadas do Azul Marinha, acentos pontuais em Amarelo Ouro ou Verde Brasil.</p>
+        </article>
+        <article class="card card--positive">
+          <h3>Estado positivo</h3>
+          <p>Não dependa só da cor: associe ícone e texto.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="institutional-footer">
+    <p>Hospital Naval de Recife · Marinha do Brasil</p>
+  </footer>
+</body>
+</html>
